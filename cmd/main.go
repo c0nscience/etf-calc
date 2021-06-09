@@ -51,7 +51,7 @@ func compoundInterest(initialInvestment EUR, returnRate Percent, years int) EUR 
 }
 
 func monthlyCompoundInterestStarting(initialInvestment EUR, returnRate Percent, investmentStartMonth time.Month) EUR {
-	return monthlyCompoundInterest(initialInvestment, returnRate, 1-yearShare(investmentStartMonth-1))
+	return monthlyCompoundInterest(initialInvestment, returnRate, 1-(float64(investmentStartMonth)-1)/12.0)
 }
 
 func monthlyCompoundInterestUntil(initialInvestment EUR, returnRate Percent, investmentEndMonth time.Month) EUR {
@@ -60,11 +60,4 @@ func monthlyCompoundInterestUntil(initialInvestment EUR, returnRate Percent, inv
 
 func monthlyCompoundInterest(initialInvestment EUR, returnRate Percent, share float64) EUR {
 	return EUR(float64(initialInvestment) * (1 + returnRate.Value()*share))
-}
-
-func yearShare(m time.Month) float64 {
-	if m == time.January {
-		return 1
-	}
-	return float64(m) / 12
 }

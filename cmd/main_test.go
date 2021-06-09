@@ -99,19 +99,19 @@ func Test_MonthlyCompoundInterestUntil(t *testing.T) {
 	}
 }
 
-func Test_YearShare(t *testing.T) {
-	t.Run("full year", func(t *testing.T) {
-		assert.Equal(t, float64(1), yearShare(time.January))
-	})
-
-	t.Run("partial year near start", func(t *testing.T) {
-		assert.Equal(t, 3.0/12.0, yearShare(time.March))
-	})
-	t.Run("partial year", func(t *testing.T) {
-		assert.Equal(t, 0.5, yearShare(time.June))
-	})
-
-	t.Run("partial year near end", func(t *testing.T) {
-		assert.Equal(t, 11.0/12.0, yearShare(time.November))
-	})
-}
+//func Test_YearShare(t *testing.T) {
+//	t.Run("full year", func(t *testing.T) {
+//		assert.Equal(t, float64(1), yearShare(time.January))
+//	})
+//
+//	t.Run("partial year near start", func(t *testing.T) {
+//		assert.Equal(t, 3.0/12.0, yearShare(time.March))
+//	})
+//	t.Run("partial year", func(t *testing.T) {
+//		assert.Equal(t, 0.5, yearShare(time.June))
+//	})
+//
+//	t.Run("partial year near end", func(t *testing.T) {
+//		assert.Equal(t, 11.0/12.0, yearShare(time.November))
+//	})
+//}
